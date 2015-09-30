@@ -1,0 +1,30 @@
+{
+  "name": "s3-access-log-parser",
+  "version": "0.0.1",
+  "description": "easy way to parse the S3 access log format",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": {
+    "name": "Chad Scira",
+    "email": "chadvscira@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/icodeforlove/s3-access-log-parser.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vows": "~0.7.0",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-jasmine-node": "~0.2.1",
+    "grunt-cli": "~0.1.13"
+  },
+  "dependencies": {
+    "moment": "^2.10.6",
+    "string-saw": "0.0.15"
+  }
+}
