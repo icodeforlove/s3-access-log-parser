@@ -24,6 +24,14 @@ describe('General', function() {
 		)).toEqual({});
 	});
 
+	it('it can parse lines with requests originating from IAM users', function() {
+		expect(parser(
+			'79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be mybucket [06/Feb/2014:00:00:38 +0000] 192.0.2.3 arn:aws:iam::100:user/iam-user 3E57427F3EXAMPLE REST.GET.VERSIONING - "GET /mybucket?versioning HTTP/1.1" 200 - 113 - 7 - "-" "S3Console/0.4" -'
+		)).toEqual(jasmine.objectContaining({
+			requester: 'arn:aws:iam::100:user/iam-user'
+		}));
+	});
+
 	it('it can detect bad matches', function() {
 		expect(parser(
 			'mybucket [06/Feb/2014:00:00:38 +0000] 192.0.2.3 79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be 3E57427F3EXAMPLE REST.GET.VERSIONING - "GET /mybucket?versioning HTTP/1.1" 200 - 113 - 7 - "-" "S3Console/0.4" -'
